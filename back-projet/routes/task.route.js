@@ -23,6 +23,8 @@ module.exports =  (app) => {
 
     router.get('/getTask/:id', [], task.getTaskById)
 
+    router.get('/getUsers', [], task.getUsers)
+
     router.post('/createTask', [], task.addTask)
 
     router.post('/deleteTask/:id', [], task.removeTask)

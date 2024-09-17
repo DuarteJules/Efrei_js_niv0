@@ -53,6 +53,14 @@ exports.getTasks = async (req, res) => {
     res.status(200).send(JSON.stringify({result: 'ok', data: JSON.stringify(result)}))
 }
 
+exports.getUsers = async (req, res) => {
+    const connection = await db.connect()
+    const collection = await connection.db('Task').collection('Users')
+    const result = await collection.find({}).toArray()
+
+    res.status(200).send(JSON.stringify({result: 'ok', data: JSON.stringify(result)}))
+}
+
 exports.getTaskById = async (req, res) => {
     const connection = await db.connect()
     const collection = await connection.db('Task').collection('tasks')
